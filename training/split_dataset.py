@@ -2,9 +2,9 @@ import os
 import shutil
 import random
 
-source_dir = "../dataset"
-train_dir = "../Dataset_split/train"
-val_dir = "../Dataset_split/val"
+source_dir = "./dataset"
+train_dir = "./Dataset_split/train"
+val_dir = "./Dataset_split/val"
 
 os.makedirs(train_dir, exist_ok=True)
 os.makedirs(val_dir, exist_ok=True)
