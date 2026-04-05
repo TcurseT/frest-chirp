@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Root tokens ─────────────────────────────────────────── */
+:root {
+  --bg: #04060f;
+  --cyan: #22d3ee;
+  --indigo: #818cf8;
+  --green: #34d399;
+}
+
+/* ─── Base ────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ─── Video Background ────────────────────────────────────── */
+.video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -20;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: #f8fafc;
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+
+}
+
+/* ─── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* ─── Glassmorphism card ──────────────────────────────────── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.028);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+    0 32px 80px -16px rgba(0, 0, 0, 0.65),
+    0 0 140px -50px rgba(34, 211, 238, 0.07);
+
+
+}
+
+/* ─── Glow helpers ────────────────────────────────────────── */
+.glow-cyan {
+  box-shadow: 0 0 24px rgba(34, 211, 238, 0.45), 0 0 48px rgba(34, 211, 238, 0.12);
+}
+
+.glow-indigo {
+  box-shadow: 0 0 24px rgba(129, 140, 248, 0.45), 0 0 48px rgba(129, 140, 248, 0.12);
+}
+
+.glow-red {
+  box-shadow: 0 0 28px rgba(239, 68, 68, 0.55), 0 0 56px rgba(239, 68, 68, 0.18);
+}
+
+/* ─── Text gradients ──────────────────────────────────────── */
+.text-gradient-cyan-indigo {
+  background: linear-gradient(90deg, var(--cyan), var(--indigo));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Grid background ─────────────────────────────────────── */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+  background-size: 52px 52px;
+}
+
+/* ─── Pulsing rings (recording state) ────────────────────── */
+.ring-a {
+  animation: ringA 2.1s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+}
+
+.ring-b {
+  animation: ringB 2.1s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.55s infinite;
+}
+
+@keyframes ringA {
+
+  0%,
+  100% {
+    transform: scale(0.88);
+    opacity: 0.75;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 0.2;
+  }
+}
+
+@keyframes ringB {
+
+  0%,
+  100% {
+    transform: scale(0.82);
+    opacity: 0.45;
+  }
+
+  50% {
+    transform: scale(1.42);
+    opacity: 0.06;
+  }
+}
+
+/* ─── Spectrogram bar shimmer ─────────────────────────────── */
+@keyframes specBar {
+
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
